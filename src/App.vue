@@ -26,9 +26,9 @@ export default class App extends Vue {}
 
 <style lang="scss" scoped>
 .content {
-  display: flex;  
+  display: flex;
   .left {
-    width: 200px;
+    width: 250px;
   }
 }
 </style>
@@ -38,5 +38,13 @@ export default class App extends Vue {}
 body {
   margin: 0;
   font-family: "苹方-简 常规体";
+  .el-breadcrumb {
+    color: #354052;
+    font:{
+      weight:600;
+      size: 18px;
+      family:"苹方-简 中粗体"
+    }
+  }
 }
 </style>
