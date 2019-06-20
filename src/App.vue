@@ -1,29 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <nav-title></nav-title>
+    <div class="content">
+      <left class="left"></left>
+      <mainContent></mainContent>
     </div>
-    <router-view/>
   </div>
 </template>
+<script lang="ts">
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import navTitle from "@/components/nav.vue";
+import left from "@/components/left.vue";
+import mainContent from "@/components/main.vue";
+
+@Component({
+  components: {
+    navTitle,
+    left,
+    mainContent
+  }
+})
+export default class App extends Vue {}
+</script> 
+
+<style lang="scss" scoped>
+.content {
+  display: flex;  
+  .left {
+    width: 200px;
+  }
+}
+</style>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@import url("./assets/css/var.css");
+body {
+  margin: 0;
+  font-family: "苹方-简 常规体";
 }
 </style>
