@@ -31,6 +31,7 @@ export default class HandleStatus extends Vue{
 
     @Emit("changeStatusData")
     changeStatus(val:string):void{
+        console.log(val)
         this.status=val
     }
 }
