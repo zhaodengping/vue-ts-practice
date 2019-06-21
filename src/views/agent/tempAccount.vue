@@ -13,10 +13,14 @@
                   </el-col>
                   <el-col :span="4">
                       <el-form-item label="客户来源">
-                          <!-- <clientSource></clientSource> -->
+                          <clientSource @changeSourceData="changeSource"></clientSource>
                       </el-form-item>
                   </el-col>
-                  <el-col :span="4">3</el-col>
+                  <el-col :span="4">
+                      <el-form-item label="处理状态">
+                          <handleStatus @changeStatusData="changeStatus"></handleStatus>
+                      </el-form-item>
+                  </el-col>
                   <el-col :span="4">4</el-col>
                   <el-col :span="6">5</el-col>
                 </el-row>
@@ -26,22 +30,31 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import {Component} from 'vue-class-component';
-import clientSource from '@components/search/clientSource.vue';
-
+import {Component} from 'vue-property-decorator';
+import clientSource from '@/components/search/clientSource.vue';
+import handleStatus from '@/components/search/handleStatus.vue';
 
 @Component({
     components:{
-        clientSource
+        clientSource,handleStatus
     }
 })
-export default Vue.extend({
-    data(){
-        return{
-            searchForm:{}
-        }
+export default class tempAccount extends Vue{
+    private searchForm:object={
+        date:'',
+    };
+    changeSource(val:string){
+        this.searchForm=Object.assign({},this.searchForm,{
+            source:val
+        })
+    };
+    changeStatus(val:string){
+        this.searchForm=Object.assign({},this.searchForm,{
+            status:val
+        })
+        console.log(this.searchForm)
     }
-})
+}
 </script>
 
 <style lang="scss" scoped>
