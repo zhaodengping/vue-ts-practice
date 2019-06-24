@@ -28,7 +28,7 @@ export default class App extends Vue {}
 .content {
   display: flex;
   .left {
-    width: 250px;
+    width: 260px;
   }
 }
 </style>
