@@ -9,6 +9,7 @@
 .content {
   width: 100%;
   background-color: #f5f5f5;
+  overflow-y: auto;
   .content-main {
     margin: 12px;
     padding: 24px 30px;

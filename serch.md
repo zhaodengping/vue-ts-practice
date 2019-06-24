@@ -1,16 +1,19 @@
 ```
 <template>
     <div>
-        <el-select v-model="selectValue">
-          <el-option v-for="(item,index) in brandList" :key="index" :value="item.value" :label="item.label"></el-option>
+        <el-select v-model="selectValue" @change="select">
+          <el-option v-for="(item,index) in seriesList" :key="index" :value="item.value" :label="item.label"></el-option>
         </el-select>
     </div>
 </template>
 <script lang="ts">
 // 产品品牌
 import Vue from 'vue'
-export default class Brand extends Vue{
-    brandList:object[]=[
+import {Component, Emit} from 'vue-property-decorator';
+@Component
+export default class Series extends Vue{
+    selectValue:string=""
+    seriesList:object[]=[
         {
           value: '选项1',
           label: '黄金糕'
@@ -28,7 +31,12 @@ export default class Brand extends Vue{
           label: '北京烤鸭'
         }
     ]
+    @Emit("changeSeries")
+    select(e):void{
+        this.selectValue=e
+    }
 }
 </script>
+
 
 ```
