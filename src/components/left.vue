@@ -14,7 +14,7 @@
       <el-submenu index="2">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>代理商列表</span>
+          <span>产品管理</span>
         </template>
         <el-menu-item index="/record">产品档案</el-menu-item>
       </el-submenu>

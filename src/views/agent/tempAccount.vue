@@ -3,7 +3,7 @@
     <el-breadcrumb separator="/">
       <el-breadcrumb-item>临时客户管理</el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="head">
+    <div class="search">
       <el-form :model="searchForm">
         <el-row>
           <el-col :span="4">
@@ -23,13 +23,11 @@
           </el-col>
           <el-col :span="4">
             <el-form-item>
-              <template>&nbsp;</template>
               <el-input v-model="searchForm.searchText" placeholder="请输入代理商名称、联系人或手机号"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="4" :offset="1">
             <el-form-item>
-              <div>&nbsp;</div>
               <el-button type="primary" plain>搜索</el-button>
             </el-form-item>
           </el-col>
@@ -46,13 +44,39 @@
       <el-table-column label="客户来源" prop="resource"></el-table-column>
       <el-table-column label="关注日期" prop="dates"></el-table-column>
       <el-table-column label="所属业务员" prop="salesman"></el-table-column>
-      <el-table-column label="申请状态" prop="status"></el-table-column>
+      <el-table-column label="申请状态">
+        <template slot-scope="scope">
+          <div>{{scope.row.status}}</div>
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
-          <template slot-scope="scope">
+        <template slot-scope="slot">
+          <el-popover trigger="hover" placement="bottom">
+            <el-collapse>
+              <el-collapse-item
+                :name="index"
+                :title="item.title"
+                v-for="(item,index) in allocation"
+                :key="index"
+              >
+                <el-button
+                  type="text"
+                  plain
+                  v-for="(item1,index1) in item.content"
+                  :key="index1"
+                >{{item1}}</el-button>
+              </el-collapse-item>
+            </el-collapse>
+            <div slot="reference" class="name-wrapper">
               <el-button type="text" size="mini">分配</el-button>
-          </template>
+            </div>
+          </el-popover>
+        </template>
       </el-table-column>
     </el-table>
+    <div class="page">
+      <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -68,20 +92,46 @@ import handleStatus from "@/components/search/handleStatus.vue";
   }
 })
 export default class tempAccount extends Vue {
-  private searchForm: object = {
+  searchForm: object = {
     dates: "",
     searchText: ""
   };
-  tableData: Object[] = [{
-      phone:'123456789',
-      name:"zdp",
-      governmentName:"华趣",
-      phoneAddress:"上海普陀区",
-      resource:"小程序",
-      dates:"2018/12/22",
-      salesman:"哈哈哈",
-      status:"待审核",
-  }];
+  tableData: Object[] = [
+    {
+      phone: "123456789",
+      name: "zdp",
+      governmentName: "华趣",
+      phoneAddress: "上海普陀区",
+      resource: "小程序",
+      dates: "2018/12/22",
+      salesman: "哈哈哈",
+      status: "待审核"
+    },
+    {
+      phone: "123456789",
+      name: "zdp",
+      governmentName: "华趣",
+      phoneAddress: "上海普陀区",
+      resource: "小程序",
+      dates: "2018/12/22",
+      salesman: "哈哈哈",
+      status: "待审核"
+    }
+  ];
+  allocation: Object[] = [
+    {
+      title: "销售一组",
+      content: ["陈小春", "陈小春", "陈小春", "陈小春"]
+    },
+    {
+      title: "销售一组",
+      content: ["陈小春", "陈小春", "陈小春", "陈小春"]
+    },
+    {
+      title: "销售一组",
+      content: ["陈小春", "陈小春", "陈小春", "陈小春"]
+    }
+  ];
   created() {
     this.getNowTime();
   }
@@ -103,7 +153,11 @@ export default class tempAccount extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.head {
+.search {
   margin: 30px 0;
+}
+.page{
+  margin: 30px 0 10px;
+  text-align: right;
 }
 </style>
