@@ -60,7 +60,7 @@
       <el-table-column label="代理商编码" prop="code"></el-table-column>
       <el-table-column label="代理商名称">
         <template slot-scope="scope">
-          <div class="agent-name">{{scope.row.agentName}}</div>
+          <div class="agent-name" @click="detail">{{scope.row.agentName}}</div>
         </template>
       </el-table-column>
       <el-table-column label="联系人" prop="name"></el-table-column>
@@ -176,6 +176,9 @@ export default class AgentList extends Vue {
       .catch(() => {
         console.log("取消");
       });
+  };
+  detail():void{
+    this.$router.push("/agentDeatil")
   }
 }
 </script>

@@ -25,9 +25,7 @@ export default class Main extends Vue {}
 
 <style lang="scss" scoped>
 .content {
-  width: 100%;
   background-color: #f5f5f5;
-  overflow-y: auto;
   display: flex;
   .left {
     width: 265px;
@@ -40,7 +38,8 @@ export default class Main extends Vue {}
       radius: 10px;
     }
     width: 100%;
-    height: calc(100vh - 144px);
+    min-height: calc(100vh - 144px);
+    overflow: hidden;
   }
 }
 </style>
