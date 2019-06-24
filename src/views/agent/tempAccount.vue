@@ -7,28 +7,43 @@
       <el-form :model="searchForm">
         <el-row>
           <el-col :span="4">
-            <el-form-item label="注册日期">
+            <el-form-item>
+              <template>
+                <div class="font-color">注册日期</div>
+              </template>
               <el-date-picker v-model="searchForm.dates"></el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-form-item label="客户来源">
+            <el-form-item>
+              <template>
+                <div class="font-color">客户来源</div>
+              </template>
               <clientSource @changeSourceData="changeSource"></clientSource>
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-form-item label="处理状态">
+            <el-form-item>
+              <template>
+                <div class="font-color">处理状态</div>
+              </template>
               <handleStatus @changeStatusData="changeStatus"></handleStatus>
             </el-form-item>
           </el-col>
           <el-col :span="4">
             <el-form-item>
+              <template>
+                <div>&nbsp;</div>
+              </template>
               <el-input v-model="searchForm.searchText" placeholder="请输入代理商名称、联系人或手机号"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="4" :offset="1">
             <el-form-item>
-              <el-button type="primary" plain>搜索</el-button>
+              <template>
+                <div>&nbsp;</div>
+              </template>
+              <el-button type="primary" plain @click="searchState">搜索</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -149,12 +164,18 @@ export default class tempAccount extends Vue {
       status: val
     });
   }
+  searchState():void{
+    console.log(this.searchForm)
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .search {
   margin: 30px 0;
+  .font-color{
+    color: var(--search-color)
+  }
 }
 .page{
   margin: 30px 0 10px;
