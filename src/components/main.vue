@@ -13,7 +13,7 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import navTitle from "@/components/nav.vue";
-import left from "@/components/left";
+import left from "@/components/left.vue"
 @Component({
   components: {
     navTitle,
