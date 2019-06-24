@@ -1,38 +1,8 @@
 <template>
   <div id="app">
-    <nav-title></nav-title>
-    <div class="content">
-      <left class="left"></left>
-      <mainContent></mainContent>
-    </div>
+    <router-view></router-view>    
   </div>
-</template>
-<script lang="ts">
-import Vue from "vue";
-import { Component } from "vue-property-decorator";
-import navTitle from "@/components/nav.vue";
-import left from "@/components/left.vue";
-import mainContent from "@/components/main.vue";
-
-@Component({
-  components: {
-    navTitle,
-    left,
-    mainContent
-  }
-})
-export default class App extends Vue {}
-</script> 
-
-<style lang="scss" scoped>
-.content {
-  display: flex;
-  .left {
-    width: 260px;
-  }
-}
-</style>
-
+</template>  
 <style lang="scss">
 @import url("./assets/css/var.css");
 body {

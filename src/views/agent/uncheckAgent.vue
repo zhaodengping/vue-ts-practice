@@ -88,7 +88,7 @@ export default class UncheckAgent extends Vue {
   searchState():void{
       console.log(this.searchForm)
   }
-  selectSalesman(e):void{
+  selectSalesman(e:string):void{
       this.searchForm=Object.assign({},this.searchForm,{
           salesName:e
       })
