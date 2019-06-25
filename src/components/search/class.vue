@@ -6,7 +6,7 @@
     </div>
 </template>
 <script lang="ts">
-// 产品品牌
+// 产品分类
 import Vue from 'vue'
 import { Emit, Component } from 'vue-property-decorator';
 @Component

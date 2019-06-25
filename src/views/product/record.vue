@@ -179,13 +179,7 @@ export default class AgentList extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.search {
-  margin: 30px 0;
-  .font-color {
-    color: var(--search-color);
-  }
-}
+<style lang="scss" scoped> 
 .table-title {
   margin-bottom: 30px;
   span {
