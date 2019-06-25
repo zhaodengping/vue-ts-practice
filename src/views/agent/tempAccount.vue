@@ -170,13 +170,7 @@ export default class tempAccount extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.search {
-  margin: 30px 0;
-  .font-color{
-    color: var(--search-color)
-  }
-}
+<style lang="scss" scoped> 
 .page{
   margin: 30px 0 10px;
   text-align: right;

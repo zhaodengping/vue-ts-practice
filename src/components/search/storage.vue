@@ -1,18 +1,18 @@
 <template>
     <div>
         <el-select v-model="selectValue" @change="select">
-          <el-option v-for="(item,index) in salesmanList" :key="index" :value="item.value" :label="item.label"></el-option>
+          <el-option v-for="(item,index) in storageList" :key="index" :value="item.value" :label="item.label"></el-option>
         </el-select>
     </div>
 </template>
 <script lang="ts">
-// 业务员
+// 产品库房
 import Vue from 'vue'
 import {Component, Emit} from 'vue-property-decorator';
 @Component
 export default class Series extends Vue{
     selectValue:string=""
-    salesmanList:object[]=[
+    storageList:object[]=[
         {
           value: '选项1',
           label: '黄金糕'
@@ -30,7 +30,7 @@ export default class Series extends Vue{
           label: '北京烤鸭'
         }
     ]
-    @Emit("changeSalesman")
+    @Emit("changeStorage")
     select(e:string):void{
         this.selectValue=e
     }

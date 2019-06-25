@@ -17,6 +17,13 @@ body {
       family: "苹方-简 中粗体";
     }
   }
+  //所有的搜索栏的样式
+  .search {
+    margin: 30px 0;
+    .font-color {
+      color: var(--search-color);
+    }
+  }
   //所有页面固定在底部的
   .common-footer {
     position: fixed;
@@ -32,6 +39,14 @@ body {
   }
   .el-table th.gutter {
     display: table-cell !important;
+  }
+  .el-select {
+    width: 90%;
+  }
+  //分页位置
+  .page {
+    margin: 30px 0;
+    text-align: right;
   }
 }
 </style>

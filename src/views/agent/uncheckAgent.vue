@@ -3,7 +3,7 @@
     <el-breadcrumb separator="/">
       <el-breadcrumb-item>代理商审核</el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="head">
+    <div class="search">
       <el-form :model="searchForm">
         <el-row>
           <el-col :span="6">
@@ -95,13 +95,7 @@ export default class UncheckAgent extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.head {
-  margin: 30px 0;
-  .font-color {
-    color: var(--search-color);
-  }
-}
+<style lang="scss" scoped> 
 .page{
     margin: 30px 0;
     text-align: right;
