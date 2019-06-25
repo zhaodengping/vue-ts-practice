@@ -21,6 +21,12 @@ export default new Router({
       { path: "/agentDeatil", component: resolve => require(['./views/agent/agentDetail.vue'], resolve) },
       //产品管理
       { path: "/record", component: resolve => require(['./views/product/record.vue'], resolve) },
+      //库存管理
+      {path:"/storageDetail",component:resolve=>require(['./views/storage/storageDetail.vue'],resolve)},
+      {path:"/priceManage",component:resolve=>require(['./views/storage/priceManage.vue'],resolve)},
+      {path:"/outManage",component:resolve=>require(['./views/storage/outManage.vue'],resolve)},
+      {path:"/inManage",component:resolve=>require(['./views/storage/inManage.vue'],resolve)},
+      {path:"/checkNumber",component:resolve=>require(['./views/storage/checkNumber.vue'],resolve)},
     ]
   }
   ]

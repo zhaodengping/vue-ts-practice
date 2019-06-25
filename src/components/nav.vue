@@ -16,14 +16,37 @@
         </div>
       </div>
       <div class="notice">
-        <i class="iconfont iconxiaoxi"></i>
+        <el-badge :value="12" class="item" type="warning">
+          <i class="iconfont iconxiaoxi"></i>
+        </el-badge>
       </div>
       <div class="system">
-          <i class="iconfont iconicon--"></i>
+        <el-popover placement="bottom" width="180" trigger="click">
+          <section>
+            <i class="iconfont iconhuiyuan"></i>
+            <span>修改密码</span>
+          </section>
+          <section @click="logout">
+            <i class="iconfont iconweibiaoti--"></i>
+            <span>退出登录</span>
+          </section>
+          <el-button icon="iconfont iconicon--" type="text" slot="reference"></el-button>
+        </el-popover>
       </div>
     </div>
   </div>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator';
+@Component
+export default class Nav extends Vue{
+  logout():void{
+    this.$router.push("/login")
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .nav {
   display: flex;
@@ -76,22 +99,42 @@
       }
     }
     .notice {
-        margin: 0 25px;
-        padding: 0 25px;
-        border:{
-            left:1px solid var(--theme-color);
-            right:1px solid var(--theme-color);
-        }
+      margin: 0 25px;
+      padding: 0 25px;
+      cursor: pointer;
+      border: {
+        left: 1px solid var(--theme-color);
+        right: 1px solid var(--theme-color);
+      }
       i {
         color: var(--theme-color);
-        font-size: 30px;
+        font-size: 20px;
       }
-    };
-    .system{
-        i{
-            color: #fff;
-            font-size: 20px;
-        }
+    }
+    .system {
+      cursor: pointer;
+      .el-button--text {
+        color: var(--theme-color);
+        font-size: 20px;
+      }
+    }
+  }
+}
+.el-popover {
+  line-height: 30px;
+  section {
+    display: flex;
+    align-items: center;
+    &:hover{
+      background-color: var(--theme-border);
+      cursor: pointer;
+    }
+    span {
+      margin-left: 20px;
+      font-size: 20px;
+    }
+    .iconfont {
+      font-size: 25px;
     }
   }
 }
