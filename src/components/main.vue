@@ -1,12 +1,12 @@
 <template>
   <div>
     <nav-title></nav-title>
-    <div class="content">
+    <main class="content">
       <left class="left"></left>
       <div class="content-main">
         <router-view></router-view>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 <script lang="ts">
@@ -24,11 +24,11 @@ export default class Main extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.content {
+main {
   background-color: #f5f5f5;
   display: flex;
   .left {
-    width: 265px;
+    width: 270px;
   }
   .content-main {
     margin: 12px;
@@ -38,8 +38,8 @@ export default class Main extends Vue {}
       radius: 10px;
     }
     width: 100%;
-    min-height: calc(100vh - 144px);
-    overflow: hidden;
+    height: calc(100vh - 144px);
+    overflow: auto;
   }
 }
 </style>

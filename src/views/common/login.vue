@@ -67,7 +67,7 @@ header {
     margin: 0 auto;
     top: 50%;
     transform: translateY(-50%);
-    width: 65%;
+    width: 1000px;
     background-color: #ffffff;
     border-radius: 20px;
     img {
