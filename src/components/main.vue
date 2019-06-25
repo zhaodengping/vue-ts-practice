@@ -28,10 +28,11 @@ main {
   background-color: #f5f5f5;
   display: flex;
   .left {
-    width: 270px;
+    position: absolute;
+    width: 200px !important;
   }
   .content-main {
-    margin: 12px;
+    margin: 12px 12px 12px 215px;
     padding: 24px 30px;
     background-color: #fff;
     border: 1px solid #dfe2e5 {
